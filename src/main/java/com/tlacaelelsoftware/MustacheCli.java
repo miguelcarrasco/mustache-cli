@@ -15,8 +15,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 
 @CommandLine.Command(name = "mustache-cli", mixinStandardHelpOptions = true, version = "mustache-cli 1.0",
-        description = "Command line interface to mustache template engine.\n" +
-                "author: Miguel Angel Carrasco\nemail:tlacaelel.software@gmail.com")
+        description = "Command line interface to mustache template engine.")
 public class MustacheCli implements Callable<Integer> {
 
     @CommandLine.Option(
@@ -46,7 +45,12 @@ public class MustacheCli implements Callable<Integer> {
     )
     private File outputFile;
 
-    @CommandLine.Option(names = {"-d", "--delimiters"}, description = "Custom delimiters", arity = "2")
+    @CommandLine.Option(
+            names = {"-d", "--delimiters"},
+            description = "Custom delimiters",
+            arity = "2",
+            paramLabel = "<delimiter>"
+    )
     private List<String> delimiters = Arrays.asList("{{", "}}");
 
 
